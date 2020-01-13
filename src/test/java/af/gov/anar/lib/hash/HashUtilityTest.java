@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
-public class HashUtilTest {
+public class HashUtilityTest {
 	/**
 	 * @throws HashUtilException HashUtil(int initialNumber, int multiplierNumber)
 	 *                           will throw a AnarHashUtilException due to
@@ -15,7 +15,7 @@ public class HashUtilTest {
 	 */
 	@Test(expected = HashUtilException.class)
 	public void testHashUtilconstructorExceptionforInitialNumber() throws HashUtilException {
-		new HashUtils(22, 35);
+		new HashUtility(22, 35);
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class HashUtilTest {
 	 */
 	@Test(expected = HashUtilException.class)
 	public void testHashUtilconstructorExceptionforMultiplier() throws HashUtilException {
-		new HashUtils(23, 44);
+		new HashUtility(23, 44);
 	}
 
 	/**
@@ -55,19 +55,19 @@ public class HashUtilTest {
 				((((((((7919l * 7664345821815920749L) + 34) * 7664345821815920749L) * 7664345821815920749L) + 1)
 						* 7664345821815920749L) + Double.doubleToLongBits(12.3)) * 7664345821815920749L)
 						+ Arrays.asList("Ramesh", "Suresh").hashCode(),
-				new HashUtils().append(34).append(obj).append(false).append(12.3)
+				new HashUtility().append(34).append(obj).append(false).append(12.3)
 						.append(Arrays.asList("Ramesh", "Suresh")).build());
 
 		assertEquals(
 				(((((((((23l * 45) + 123456789000l) * 45) + Float.floatToIntBits(2.453f)) * 45) + sh) * 45) + b) * 45)
 						+ (long) 'r',
-				new HashUtils(23, 45).append(123456789000l).append(2.453f).append(sh).append(b).append('r').build());
+				new HashUtility(23, 45).append(123456789000l).append(2.453f).append(sh).append(b).append('r').build());
 
 		assertEquals(23l * 45 * 45 * 45 * 45,
-				new HashUtils(23, 45).append(str).append(int1).append(bool1).append(dob).build());
+				new HashUtility(23, 45).append(str).append(int1).append(bool1).append(dob).build());
 
 		assertEquals(23l * 45 * 45 * 45 * 45 * 45,
-				new HashUtils(23, 45).append(byt).append(sho).append(lon).append(flo).append(chr).build());
+				new HashUtility(23, 45).append(byt).append(sho).append(lon).append(flo).append(chr).build());
 
 	}
 
@@ -96,32 +96,32 @@ public class HashUtilTest {
 		assertEquals(
 				((((((((((23l * 45) + 34) * 45) + (long) 'R') * 45) + (long) 'a') * 45) + (long) 'm') * 45 + 1) * 45)
 						+ Double.doubleToLongBits(12.3),
-				new HashUtils(23, 45).append(34).append("Ram").append(false).append(12.3).toHashCode());
+				new HashUtility(23, 45).append(34).append("Ram").append(false).append(12.3).toHashCode());
 
 		assertEquals(
 				(((((((((23l * 45) + 123456789000l) * 45) + Float.floatToIntBits(2.453f)) * 45) + sh) * 45) + b) * 45)
 						+ (long) 'r',
-				new HashUtils(23, 45).append(123456789000l).append(2.453f).append(sh).append(b).append('r')
+				new HashUtility(23, 45).append(123456789000l).append(2.453f).append(sh).append(b).append('r')
 						.toHashCode());
 
 		assertEquals(
 				((((((((((((((((((((23l * 45) + (long) 'R') * 45) + (long) 'a') * 45) + (long) 's') * 45) + (long) 'h')
 						* 45 + 23) * 45) + 46) * 45) + 74) * 45) + 0) * 45) + 1) * 45) + Double.doubleToLongBits(12.3))
 						* 45) + Double.doubleToLongBits(45.7),
-				new HashUtils(23, 45).append(new String[] { "Ra", "sh" }).append(new int[] { 23, 46, 74 })
+				new HashUtility(23, 45).append(new String[] { "Ra", "sh" }).append(new int[] { 23, 46, 74 })
 						.append(new boolean[] { true, false }).append(new double[] { 12.3, 45.7 }).toHashCode());
 
 		assertEquals(
 				(((((((((((((((((((((23l * 45) + (long) 'R') * 45) + (long) 'a') * 45) + (long) 's') * 45) + (long) 'h')
 						* 45) + 23) * 45) + 46) * 45) + 74) * 45) + 0) * 45) + 1) * 45) + Double.doubleToLongBits(12.3))
 						* 45) + Double.doubleToLongBits(45.7),
-				new HashUtils(23, 45).append(obj1).append(obj2).append(obj3).append(obj4).toHashCode());
+				new HashUtility(23, 45).append(obj1).append(obj2).append(obj3).append(obj4).toHashCode());
 
 		assertEquals(
 				(((((((((((((((((((((23l * 45) + 51) * 45) + 60) * 45) + 121) * 45) + 127) * 45) + 23) * 45) + 46) * 45)
 						+ 74) * 45) + Float.floatToIntBits(20f)) * 45) + Float.floatToIntBits(23.567f)) * 45)
 						+ (long) 'r') * 45) + (long) 'e',
-				new HashUtils(23, 45).append(new byte[] { 51, 60 }).append(new short[] { 121, 127 })
+				new HashUtility(23, 45).append(new byte[] { 51, 60 }).append(new short[] { 121, 127 })
 						.append(new long[] { 23, 46, 74 }).append(new float[] { 20f, 23.567f })
 						.append(new char[] { 'r', 'e' }).toHashCode());
 
@@ -129,6 +129,6 @@ public class HashUtilTest {
 				(((((((((((((((((((((23l * 45) + 51) * 45) + 60) * 45) + 121) * 45) + 127) * 45) + 23) * 45) + 46) * 45)
 						+ 74) * 45) + Float.floatToIntBits(20f)) * 45) + (long) Float.floatToIntBits(23.567f)) * 45)
 						+ (long) 'r') * 45) + (long) 'e',
-				new HashUtils(23, 45).append(obj5).append(obj6).append(obj7).append(obj8).append(obj9).toHashCode());
+				new HashUtility(23, 45).append(obj5).append(obj6).append(obj7).append(obj8).append(obj9).toHashCode());
 	}
 }

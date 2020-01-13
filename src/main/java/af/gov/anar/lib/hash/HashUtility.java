@@ -24,7 +24,7 @@ import java.security.MessageDigest;
  * 17 * 37 + 45.
  * </p>
  */
-public class HashUtils {
+public class HashUtility {
 	/**
 	 * Constant to use in building the hashCode.
 	 */
@@ -41,7 +41,7 @@ public class HashUtils {
 	 * initializing odd number and multiplying odd number are assigned default
 	 * values 7919l, 7664345821815920749l respectively.
 	 */
-	public HashUtils() {
+	public HashUtility() {
 		multiplierConstant = 7664345821815920749l;
 		total = 7919l;
 	}
@@ -58,7 +58,7 @@ public class HashUtils {
 	 * @throws HashUtilException
 	 *             if the number is even
 	 */
-	public HashUtils(final long initialOddNumber, final long multiplierOddNumber) throws HashUtilException {
+	public HashUtility(final long initialOddNumber, final long multiplierOddNumber) throws HashUtilException {
 		if (initialOddNumber % 2 == 0) {
 			throw new HashUtilException(
 					HashUtilConstants.ANAR_ILLEGAL_ARGUMENT_INITIALODDNUMBER_ERROR_CODE.getErrorCode(),
@@ -85,7 +85,7 @@ public class HashUtils {
 	 *            the boolean to add to the hashCode
 	 * @return this
 	 */
-	public HashUtils append(boolean value) {
+	public HashUtility append(boolean value) {
 		total = total * multiplierConstant + (value ? 0l : 1l);
 		return this;
 	}
@@ -97,7 +97,7 @@ public class HashUtils {
 	 *            the array to add to the hashCode
 	 * @return this
 	 */
-	public HashUtils append(boolean[] array) {
+	public HashUtility append(boolean[] array) {
 		if (array == null) {
 			total = total * multiplierConstant;
 		} else {
@@ -115,7 +115,7 @@ public class HashUtils {
 	 *            the byte to add to the hashcode
 	 * @return this
 	 */
-	public HashUtils append(byte value) {
+	public HashUtility append(byte value) {
 		total = total * multiplierConstant + (long) value;
 		return this;
 	}
@@ -127,7 +127,7 @@ public class HashUtils {
 	 *            array to add to the hashcode
 	 * @return this
 	 */
-	public HashUtils append(byte[] array) {
+	public HashUtility append(byte[] array) {
 		if (array == null) {
 			total = total * multiplierConstant;
 		} else {
@@ -145,7 +145,7 @@ public class HashUtils {
 	 *            the character to add to the hashcode
 	 * @return this
 	 */
-	public HashUtils append(char value) {
+	public HashUtility append(char value) {
 		total = total * multiplierConstant + (long) value;
 		return this;
 	}
@@ -157,7 +157,7 @@ public class HashUtils {
 	 *            array to add to the hashcode
 	 * @return this
 	 */
-	public HashUtils append(char[] array) {
+	public HashUtility append(char[] array) {
 		if (array == null) {
 			total = total * multiplierConstant;
 		} else {
@@ -175,7 +175,7 @@ public class HashUtils {
 	 *            double to add to the hash code
 	 * @return this
 	 */
-	public HashUtils append(double value) {
+	public HashUtility append(double value) {
 		return append(Double.doubleToLongBits(value));
 	}
 
@@ -186,7 +186,7 @@ public class HashUtils {
 	 *            array to add to the hash code
 	 * @return this
 	 */
-	public HashUtils append(double[] array) {
+	public HashUtility append(double[] array) {
 		if (array == null) {
 			total = total * multiplierConstant;
 		} else {
@@ -204,7 +204,7 @@ public class HashUtils {
 	 *            float to add to the hash code
 	 * @return this
 	 */
-	public HashUtils append(float value) {
+	public HashUtility append(float value) {
 		total = total * multiplierConstant + (long) Float.floatToIntBits(value);
 		return this;
 	}
@@ -216,7 +216,7 @@ public class HashUtils {
 	 *            array to add to the hash code
 	 * @return this
 	 */
-	public HashUtils append(float[] array) {
+	public HashUtility append(float[] array) {
 		if (array == null) {
 			total = total * multiplierConstant;
 		} else {
@@ -234,7 +234,7 @@ public class HashUtils {
 	 *            integer to add to the hash code
 	 * @return this
 	 */
-	public HashUtils append(int value) {
+	public HashUtility append(int value) {
 		total = total * multiplierConstant + (long) value;
 		return this;
 	}
@@ -246,7 +246,7 @@ public class HashUtils {
 	 *            array to add to the hash code
 	 * @return this
 	 */
-	public HashUtils append(int[] array) {
+	public HashUtility append(int[] array) {
 		if (array == null) {
 			total = total * multiplierConstant;
 		} else {
@@ -264,7 +264,7 @@ public class HashUtils {
 	 *            long to add to the hash code
 	 * @return this
 	 */
-	public HashUtils append(long value) {
+	public HashUtility append(long value) {
 		total = total * multiplierConstant + value;
 		return this;
 
@@ -277,7 +277,7 @@ public class HashUtils {
 	 *            array to add to the hashcode
 	 * @return this
 	 */
-	public HashUtils append(long[] array) {
+	public HashUtility append(long[] array) {
 		if (array == null) {
 			total = total * multiplierConstant;
 		} else {
@@ -295,7 +295,7 @@ public class HashUtils {
 	 *            object to add to the hashcode
 	 * @return this
 	 */
-	public HashUtils append(Object value) {
+	public HashUtility append(Object value) {
 		if (value == null) {
 			total = total * multiplierConstant;
 
@@ -352,7 +352,7 @@ public class HashUtils {
 	 *            array to add to the hashcode
 	 * @return this
 	 */
-	public HashUtils append(Object[] array) {
+	public HashUtility append(Object[] array) {
 		if (array == null) {
 			total = total * multiplierConstant;
 		} else {
@@ -370,7 +370,7 @@ public class HashUtils {
 	 *            value to add to the hashcode
 	 * @return this
 	 */
-	public HashUtils append(short value) {
+	public HashUtility append(short value) {
 		total = total * multiplierConstant + (long) value;
 		return this;
 	}
@@ -382,7 +382,7 @@ public class HashUtils {
 	 *            array to add to the hashcode
 	 * @return this
 	 */
-	public HashUtils append(short[] array) {
+	public HashUtility append(short[] array) {
 		if (array == null) {
 			total = total * multiplierConstant;
 		} else {
