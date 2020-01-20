@@ -1,6 +1,7 @@
 package af.gov.anar.lib.hash.exception;
 
 
+import af.gov.anar.lang.infrastructure.exception.common.BaseCheckedException;
 
 /**
  * HashUtilException class wraps the Java BaseCheckedException class to provide
